@@ -2,22 +2,37 @@
 import requests as r
 from datetime import datetime
 from plotly import graph_objects
+import os
 
 # Get the voinbase api link + granularity (how long you want candle stick time period)
+# The {} are used so we can pass the values in later
 COINBASE_API_CANDLESTICKS_URL = \
     'https://api.pro.coinbase.com/products/{}/candles?granularity={}'
 
 
 # Define main program functionality 
 def main():
+    option = ""
+    cryptoOptions = ['ADA', 'ETH', 'BTC']
+
+    while True:
+        option = input("Enter the tiker value of the crypto coin you want to view (USD): ").strip()
+        if option == "exit":
+            exit(0)
+        if option in cryptoOptions:
+            break
+        os.system('cls')
+        print("Coin data currently inavaliable try another...")
+        print("Or type 'exit' to Exit the program.")
+
     resp = r.get(
         COINBASE_API_CANDLESTICKS_URL.format(
-            'ADA-USD', # Give the crypto (ticker) you want + currency
+            f'{option}-USD', # Give the crypto (ticker) you want + currency
             86400 # Give granularity in seconds (86400 seocnds in a day)
         )
     )
     resp_json = resp.json()
-    
+
     # Define arrays to store data from coinbase
     dates = []
     lows = []
@@ -33,7 +48,7 @@ def main():
         highs.append(candle_stick_data[2])
         opens.append(candle_stick_data[3])
         closes.append(candle_stick_data[4])
-    
+
     # Make the graph using built in plotly Candlestick functions
     figure = graph_objects.Figure(
         data = [ graph_objects.Candlestick(
@@ -45,10 +60,10 @@ def main():
             ) 
         ],
         layout = graph_objects.Layout(title={
-            "text": "ADA/GDP Daily Chart"
+            "text": f"{option}/USD Daily Chart"
         })
     )
-    
+
     # Display the graph
     figure.show()
 
