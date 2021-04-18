@@ -8,7 +8,7 @@ The crypto coin analysed will be up to the user via a GUI window, currently the 
 
 # Tools/software Used
 1. Python
-2. Coinbase API
+2. Coinbase API (thus is always up-to-date)
 
 # How to run program
 1. Git clone the project
