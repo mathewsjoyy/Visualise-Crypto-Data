@@ -23,7 +23,7 @@ class CryptoCoinAnalysis:
         # Define the format of the GUI
         self.window = tk.Tk()
         self.window.geometry("{}x{}".format(WINDOW_WIDTH,WINDOW_HEIGHT))
-        self.window.configure(bg="#FF0000")
+        self.window.configure(bg="#0099ff")
         self.window.title(WINDOW_TITLE)
         self.window.iconbitmap("images/icon.ico")
         
@@ -31,11 +31,11 @@ class CryptoCoinAnalysis:
         self.header_label = tk.Label(self.window, text = "SELECT ONE OF THE AVALIABLE CRYPTO CURRENCIES BELOW", width=58)
         self.header_label.grid(column = 0, row = 1)
         # Create buttons
-        self.ada_button = tk.Button(self.window, text = "ADA", command=lambda: self.__analysis("ADA"), width = 13)
+        self.ada_button = tk.Button(self.window, text = "Cardano (ADA)", command=lambda: self.__analysis("ADA"), width = 13)
         self.ada_button.grid(column = 0, row = 2)
-        self.btc_button = tk.Button(self.window, text = "BTC", command=lambda: self.__analysis("BTC"), width = 13)
+        self.btc_button = tk.Button(self.window, text = "Bit-coin (BTC)", command=lambda: self.__analysis("BTC"), width = 13)
         self.btc_button.grid(column = 0, row = 3)
-        self.eth_button = tk.Button(self.window, text = "ETH", command=lambda: self.__analysis("ETH"), width = 13)
+        self.eth_button = tk.Button(self.window, text = "Ethereum (ETH)", command=lambda: self.__analysis("ETH"), width = 13)
         self.eth_button.grid(column = 0, row = 4)
         
         return
