@@ -15,4 +15,4 @@ The crypto coin analysed will be up to the user via a GUI window, currently the 
 2. cd into the folder where you cloned the project
 3. pip.install -r requirements.txt
 4. python main.py
-5. Enter a avaliable crpto coin ticker value
+5. Enter an avaliable crpto coin ticker value
